@@ -15,15 +15,14 @@ namespace Assicurazione
         public static bool Start()
         {
             Console.WriteLine("Benvenuto");
-            Console.WriteLine("1. Aggiungi reparto");
-            Console.WriteLine("2. Aggiungi dipendente");
-            Console.WriteLine("3. Aggiungi prodotto");
-            Console.WriteLine("4. Visualizza dati");
-            Console.WriteLine("5. Per uscire");
+            Console.WriteLine("1. Aggiungi Cliente");
+            Console.WriteLine("2. Aggiungi Polizza");
+            Console.WriteLine("3. Visualizza dati");
+            Console.WriteLine("4. Per uscire");
             int scelta = -1;
             Console.Write("Scelta ->");
             bool verifica = Int32.TryParse(Console.ReadLine(), out scelta);
-            while (scelta > 5 || scelta < 0 || verifica == false)
+            while (scelta > 4 || scelta < 0 || verifica == false)
             {
                 Console.WriteLine("Inserisci un valore corretto");
                 verifica = Int32.TryParse(Console.ReadLine(), out scelta);
@@ -55,7 +54,7 @@ namespace Assicurazione
         private static void Stampa()
         {
             Console.WriteLine("Quale entità vuoi stampare?");
-            Console.WriteLine("1. Clienti- 2. Polizze ");
+            Console.WriteLine("1. Clienti- 2. Polizze");
             int scelta = int.Parse(Console.ReadLine());
             if (scelta == 1)
             {
@@ -91,24 +90,10 @@ namespace Assicurazione
             string cognome = Console.ReadLine();
             Console.WriteLine("Inserisci l'indirizzo: ");
             string indirizzo= Console.ReadLine();
-            var clienti = repoCliente.GetAll();
-            foreach (var item in clienti)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("Scegli codice fiscale:");
-            string codicefiscale = (Console.ReadLine());
-            //controllo se esiste  quel codice fiscale con quell'id/numero
-            var codEsistente = repoCliente.GetByCode(codicefiscale);
-            if (codEsistente == null)
-            {
-                Console.WriteLine("Cliente errato o inesistente");
-            }
-            else
-            {
+            
                 Cliente cliente = new Cliente()
                 {
-                    CodiceFiscaleID = codicefiscale,
+                    CodiceFiscaleID = codiceFiscale,
                     Nome = nome,
                     Cognome = cognome,
                     Indirizzo = indirizzo,
@@ -118,15 +103,17 @@ namespace Assicurazione
                 Console.WriteLine("Cliente aggiunto");
             }
 
-        }
+        
         private static void AggiungiPolizza()
         {
             Polizza polizzaDaAggiungere = new Polizza();
             Console.WriteLine("Inserisci il Numero");
             int numero = int.Parse(Console.ReadLine());
             Console.WriteLine("Inserisci DataStipula");
-            DateTime dataStipula = new DateTime();
-            Console.WriteLine("Inserisci l'importo");
+            DateTime dataStipula = DateTime.Parse(Console.ReadLine());
+         
+            Console.WriteLine("Inserisci l'importoAssicurato");
+
             float importoAssicurato;
             bool verificaImporto = float.TryParse(Console.ReadLine(), out importoAssicurato);
             while (!verificaImporto || importoAssicurato < 0)
@@ -138,9 +125,11 @@ namespace Assicurazione
             {
                 Console.WriteLine(item);
             }
-            
-                Console.WriteLine("Che tipo di polizza vuoi inserire? 1-rc auto 2-vita 3-furto");
+            Console.WriteLine("Inserire codice fiscale:");
+            string codicefiscale = Console.ReadLine();
+            Console.WriteLine("Che tipo di polizza vuoi inserire? 1-rc auto 2-vita 3-furto");
                 int tipoPolizza;
+               
                 bool verifica = Int32.TryParse(Console.ReadLine(), out tipoPolizza);
                 while (tipoPolizza > 4 || tipoPolizza < 0 || verifica == false)
                 {
@@ -158,6 +147,7 @@ namespace Assicurazione
                     {
                         Targa = targa,
                         Cilindrata = cilindrata,
+                        CodiceFiscaleID = codicefiscale,
                         
                     };
                 }
@@ -168,8 +158,9 @@ namespace Assicurazione
                 polizzaDaAggiungere = new Vita()
                     {
                         AnniDelAssicurato = anniDelAssicurato,
-                        
-                    };
+                        CodiceFiscaleID = codicefiscale,
+
+                };
                 } 
             else 
                     {
@@ -178,6 +169,7 @@ namespace Assicurazione
                 polizzaDaAggiungere = new Furto()
                 {
                     PercentualeCoperta = percentualecoperta,
+                    CodiceFiscaleID = codicefiscale,
 
                 };
 

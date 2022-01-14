@@ -24,7 +24,7 @@ namespace Assicurazione.Models
 
         public override string ToString()
         {
-            return $"{CodiceFiscaleID} - {Nome}{Cognome}";
+            return $" codicefiscale:{CodiceFiscaleID}- Nome:{Nome}-Cognome:{Cognome}-Indirizzo:{Indirizzo}-spesa totale mensile :{GetSpesaTotale()}";
 
 
         }

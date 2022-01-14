@@ -20,7 +20,7 @@ namespace Assicurazione.Models
 
         public override string ToString()
         {
-            return $"{NumeroID} - {DataStipula}{ImportoAssicurato}{RataMensile} cliente:{Cliente}";
+            return $" Numero:{NumeroID} -DataStipula: {DataStipula}-ImportoAssicurato:{ImportoAssicurato}-RataMensile: {RataMensile}-cliente:{Cliente}";
 
 
         }
