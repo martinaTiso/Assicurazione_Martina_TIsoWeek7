@@ -17,10 +17,10 @@ namespace Assicurazione.Models
 
         public ICollection<Polizza> Polizze { get; set; } = new List<Polizza>();
 
-        //public float GetSpesaTotale()
-        //{
-        //    return Polizza.Sum(p => p.RataMensile);
-        //}
+        public float GetSpesaTotale()
+        {
+            return Polizze.Sum(p => p.RataMensile);
+        }
 
         public override string ToString()
         {
