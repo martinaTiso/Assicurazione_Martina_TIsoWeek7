@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione
 {
-    internal static class Menu
+    public static class Menu
     {
         static IRepositoryCliente repoCliente = new RepositoryCliente();
         static IRepositoryPolizza repoPolizza = new RepositoryPolizza();
@@ -96,13 +96,13 @@ namespace Assicurazione
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine("Scegli reparto:");
+            Console.WriteLine("Scegli codice fiscale:");
             string codicefiscale = (Console.ReadLine());
             //controllo se esiste  quel codice fiscale con quell'id/numero
-            var codEsistente = repoCliente.GetByCode();
+            var codEsistente = repoCliente.GetByCode(codicefiscale);
             if (codEsistente == null)
             {
-                Console.WriteLine("Reparto errato o inesistente");
+                Console.WriteLine("Cliente errato o inesistente");
             }
             else
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Models
 {
-    internal class Cliente
+    public class Cliente
     {
 
         public string CodiceFiscaleID { get; set; }

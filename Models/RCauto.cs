@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Models
 {
-    internal class RCauto : Polizza
+    public class RCauto : Polizza
     {
         [MaxLength(5)]
         public string Targa { get; set; }

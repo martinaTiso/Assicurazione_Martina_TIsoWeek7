@@ -9,7 +9,7 @@ namespace Assicurazione.Repository
 {
     public interface IRepositoryCliente : IRepository<Cliente>
     {
-       
+        public Cliente GetByCode(string code);
      
     }
 }

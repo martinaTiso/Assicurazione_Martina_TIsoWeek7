@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Repository
 {
-    internal class RepositoryCliente : IRepositoryCliente
+    public class RepositoryCliente : IRepositoryCliente
     {
         public Cliente Create(Cliente item)
         {

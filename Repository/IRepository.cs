@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Repository
 {
-    internal interface IRepository<T>
+    public interface IRepository<T>
     {
         public T Create(T item);
 
         public ICollection<T> GetAll();
 
-     
+        
 
     }
 }

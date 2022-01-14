@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Repository
 {
-    internal class RepositoryPolizza : IRepositoryPolizza
+    public class RepositoryPolizza : IRepositoryPolizza
     {
         public Polizza Create(Polizza item)
         {

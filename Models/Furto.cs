@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Models
 {
-    internal class Furto : Polizza
+    public class Furto : Polizza
     {
         public int PercentualeCoperta { get; set; }
 

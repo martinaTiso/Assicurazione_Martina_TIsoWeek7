@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Models
 {
-    internal class Polizza
+    public class Polizza
     {
         public int NumeroID { get; set; }
         public DateTime DataStipula { get; set; }

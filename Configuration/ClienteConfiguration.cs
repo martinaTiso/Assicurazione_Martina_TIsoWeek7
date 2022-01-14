@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione.Configuration
 {
-    internal class ClienteConfiguration: IEntityTypeConfiguration<Cliente>
+    public class ClienteConfiguration: IEntityTypeConfiguration<Cliente>
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {

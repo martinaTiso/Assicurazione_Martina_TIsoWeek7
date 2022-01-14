@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assicurazione
 {
-    internal class Context : DbContext
+    public class Context : DbContext
     {
 
         public DbSet<Polizza> Polizze { get; set; }
